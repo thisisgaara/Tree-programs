@@ -123,3 +123,33 @@ node *delete_node(node* root, int key)
 	}
 	return root;	
 }
+
+int height(node *root)
+{
+	if (root == NULL) return 0;  //Base case
+	int lheight = height(root -> left);
+	int rheight = height (root -> right);
+	if(lheight > rheight)
+	{
+		if(root -> left == NULL)
+			printf("%d\n", 0);
+		else
+			printf("%d\n", root-> left->data);
+		return lheight+1;
+	}
+	if(root -> right == NULL)
+		printf("%d\n", 0);
+	else
+		printf("%d\n", root-> right -> data);
+
+	return rheight+1;
+}
+
+int size(node * root)
+{
+	if (root == NULL)
+		return 0;
+	int lsize = size(root -> left);
+	int rsize = size(root -> right);
+	return lsize+rsize+1;
+}
